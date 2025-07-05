@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Sistema de Predição de Alzheimer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🧠 Sistema de Predição de Risco de Alzheimer</h1>
+    </header>
+    
+    <main>
+        <!-- Seção Introdutória -->
+        <section id="introduction-section">
+            <div class="intro-container">
+                <h2>🎯 Sobre o Sistema</h2>
+                <div class="intro-content">
+                    <p>
+                        <strong>🔬 O que é Alzheimer?</strong><br>
+                        O Alzheimer é uma doença neurodegenerativa progressiva que afeta principalmente a memória, a linguagem e a percepção do mundo, com alterações no comportamento e na personalidade. É a forma mais comum de demência, e embora mais comum em idosos, pode ocorrer em pacientes mais jovens.
+                    </p>
+                    
+                    <p>
+                        <strong>📊 Base de Dados:</strong><br>
+                        Este sistema utiliza o <a href="https://www.kaggle.com/datasets/rabieelkharoua/alzheimers-disease-dataset" target="_blank">Alzheimer's Disease Dataset</a> do Kaggle, que contém informações extensas de saúde de 2.149 pacientes, incluindo detalhes demográficos, fatores de estilo de vida, histórico médico, medições clínicas, avaliações cognitivas e funcionais, sintomas e diagnóstico de Alzheimer.
+                    </p>
+                    
+                    <p>
+                        <strong>🤖 Modelo de Machine Learning:</strong><br>
+                        Treinamos um modelo de classificação no <a href="https://colab.research.google.com/drive/1-Ao-A9NNUVXYET737x-paAA6xFEKzOIr?usp=sharing" target="_blank">Google Colab</a> para predizer o risco de desenvolvimento de Alzheimer. O modelo analisa múltiplos fatores de risco e fornece uma classificação baseada em evidências científicas.
+                    </p>
+                    
+                    <p>
+                        <strong>📝 Campos do Formulário:</strong><br>
+                        • <strong>Obrigatórios:</strong> Dados demográficos e antropométricos (idade, gênero, etnia, educação, altura, peso)<br>
+                        • <strong>Opcionais:</strong> Estilo de vida, condições médicas, exames e avaliação cognitiva
+                    </p>
+
+                     <p>
+                        <strong>🔮 Predições Possíveis:</strong><br>
+                        • Predisposição para Alzheimer: Sim - Risco Considerável<br>
+                        • Predisposição para Alzheimer: Não - Risco Baixo
+                    </p>
+                    
+                    <p>
+                        <strong>⚕️ Importante:</strong><br>
+                        Este sistema é uma ferramenta de apoio à decisão clínica e não substitui a avaliação médica profissional. Sempre consulte um médico neurologista para diagnóstico e tratamento adequados.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção do Formulário -->
+        <section id="prediction-form-section">
+            <h2>📋 Fazer uma Nova Predição</h2>
+            
+            <form id="predictionForm">
+                <div class="form-grid">
+                    <!-- Coluna 1 - Dados Demográficos e Antropométricos (OBRIGATÓRIOS) -->
+                    <div class="form-column">
+                        <h3>👤 Dados Demográficos <span class="required-section">*</span></h3>
+                        
+                        <label for="Age">🎂 Idade (30-100 anos): <span class="required">*</span></label>
+                        <input type="number" id="Age" name="Age" required min="30" max="100">
+                        
+                        <label for="Gender">⚧ Gênero: <span class="required">*</span></label>
+                        <select id="Gender" name="Gender" required>
+                            <option value="">Selecione</option>
+                            <option value="0">♂️ Masculino</option>
+                            <option value="1">♀️ Feminino</option>
+                        </select>
+                        
+                        <label for="Ethnicity">🌍 Etnia: <span class="required">*</span></label>
+                        <select id="Ethnicity" name="Ethnicity" required>
+                            <option value="">Selecione</option>
+                            <option value="0">Branco</option>
+                            <option value="1">Negro</option>
+                            <option value="2">Asiático</option>
+                            <option value="3">Outro</option>
+                        </select>
+                        
+                        <label for="EducationLevel">🎓 Nível de Educação: <span class="required">*</span></label>
+                        <select id="EducationLevel" name="EducationLevel" required>
+                            <option value="">Selecione</option>
+                            <option value="0">📚 Ensino Fundamental</option>
+                            <option value="1">🏫 Ensino Médio</option>
+                            <option value="2">🎓 Ensino Superior</option>
+                            <option value="3">👨‍🎓 Pós-Graduação</option>
+                        </select>
+
+                        <h3>📏 Dados Antropométricos <span class="required-section">*</span></h3>
+                        
+                        <label for="Height">📏 Altura (0,00-3,00 metros): <span class="required">*</span></label>
+                        <input type="number" id="Height" name="Height" step="0.01" required min="0.00" max="3.00" placeholder="Ex: 1,50">
+                        
+                        <label for="Weight">⚖️ Peso (0,00-300,00 kg): <span class="required">*</span></label>
+                        <input type="number" id="Weight" name="Weight" step="0.01" required min="0.00" max="300.00" placeholder="Ex: 70,5">
+                        
+                        <label for="BMI">📊 IMC Calculado: <span class="required">*</span></label>
+                        <input type="number" id="BMI" name="BMI" step="0.01" readonly required min="0.00" max="300.00">
+
+                        <h3>🏃‍♂️ Estilo de Vida <span class="optional-section">(Opcional)</span></h3>
+                        
+                        <label for="Smoking">🚬 Fuma?</label>
+                        <select id="Smoking" name="Smoking">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="AlcoholConsumption">🍷 Consumo de Álcool Semanal (0-20 unidades):</label>
+                        <input type="number" id="AlcoholConsumption" name="AlcoholConsumption" step="0.01" min="0.00" max="20.00" placeholder="Ex: 2">
+                        
+                        <label for="PhysicalActivity">🏃‍♀️ Atividade Física Semanal (0-10 horas):</label>
+                        <input type="number" id="PhysicalActivity" name="PhysicalActivity" step="0.01" min="0.00" max="10.00" placeholder="Ex: 3">
+                        
+                        <label for="DietQuality">🥗 Qualidade da Dieta (0-10):</label>
+                        <input type="number" id="DietQuality" name="DietQuality" step="0.01" min="0.00" max="10.00" placeholder="Ex: 7">
+                        
+                        <label for="SleepQuality">😴 Qualidade do Sono (0-10):</label>
+                        <input type="number" id="SleepQuality" name="SleepQuality" step="0.01" min="0.00" max="10.00" placeholder="Ex: 8">
+                        
+                        <label for="FamilyHistoryAlzheimers">🧬 Histórico Familiar de Alzheimer:</label>
+                        <select id="FamilyHistoryAlzheimers" name="FamilyHistoryAlzheimers">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Coluna 2 - Condições Médicas e Exames (OPCIONAIS) -->
+                    <div class="form-column">
+                        <h3>🩺 Condições Médicas <span class="optional-section">(Opcional)</span></h3>
+                        
+                        <label for="CardiovascularDisease">❤️ Doença Cardiovascular:</label>
+                        <select id="CardiovascularDisease" name="CardiovascularDisease">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="Diabetes">🩸 Diabetes:</label>
+                        <select id="Diabetes" name="Diabetes">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="Depression">😔 Depressão:</label>
+                        <select id="Depression" name="Depression">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="HeadInjury">🤕 Lesão na Cabeça:</label>
+                        <select id="HeadInjury" name="HeadInjury">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="Hypertension">💊 Hipertensão:</label>
+                        <select id="Hypertension" name="Hypertension">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+
+                        <h3>🔬 Exames Laboratoriais <span class="optional-section">(Opcional)</span></h3>
+                        
+                        <label for="SystolicBP">🩺 Pressão Sistólica (90-180 mmHg):</label>
+                        <input type="number" id="SystolicBP" name="SystolicBP" min="90" max="180" placeholder="Ex: 120">
+                        
+                        <label for="DiastolicBP">🩺 Pressão Diastólica (60-120 mmHg):</label>
+                        <input type="number" id="DiastolicBP" name="DiastolicBP" min="60" max="120" placeholder="Ex: 80">
+                        
+                        <label for="CholesterolTotal">🧪 Colesterol Total (150-300 mg/dL):</label>
+                        <input type="number" id="CholesterolTotal" name="CholesterolTotal" step="0.01" min="150.00" max="300.00" placeholder="Ex: 200">
+                        
+                        <label for="CholesterolLDL">🔴 Colesterol LDL (0-200 mg/dL):</label>
+                        <input type="number" id="CholesterolLDL" name="CholesterolLDL" step="0.01" min="0.00" max="200.00" placeholder="Ex: 100">
+                        
+                        <label for="CholesterolHDL">🟢 Colesterol HDL (0-100 mg/dL):</label>
+                        <input type="number" id="CholesterolHDL" name="CholesterolHDL" step="0.01" min="0.00" max="100.00" placeholder="Ex: 45">
+                        
+                        <label for="CholesterolTriglycerides">🔷 Triglicerídeos (0-400 mg/dL):</label>
+                        <input type="number" id="CholesterolTriglycerides" name="CholesterolTriglycerides" step="0.01" min="0.00" max="400.00" placeholder="Ex: 150">
+                    </div>
+                    
+                    <!-- Coluna 3 - Avaliação Cognitiva e Sintomas (OPCIONAIS) -->
+                    <div class="form-column">
+                        <h3>🧠 Avaliação Cognitiva <span class="optional-section">(Opcional)</span></h3>
+                        
+                        <label for="MMSE">🧩 Teste MMSE (0-30 pontos):</label>
+                        <input type="number" id="MMSE" name="MMSE" step="0.01" min="0.00" max="30.00" placeholder="Ex: 28">
+                        
+                        <label for="FunctionalAssessment">⚡ Avaliação Funcional (0-10):</label>
+                        <input type="number" id="FunctionalAssessment" name="FunctionalAssessment" step="0.01" min="0.00" max="10.00" placeholder="Ex: 8">
+                        
+                        <label for="ADL">🏠 Atividades da Vida Diária - ADL (0-10):</label>
+                        <input type="number" id="ADL" name="ADL" step="0.01" min="0.00" max="10.00" placeholder="Ex: 10">
+
+                        <h3>⚠️ Sintomas Neurológicos <span class="optional-section">(Opcional)</span></h3>
+                        
+                        <label for="MemoryComplaints">🧠 Queixas de Memória:</label>
+                        <select id="MemoryComplaints" name="MemoryComplaints">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="BehavioralProblems">😤 Problemas Comportamentais:</label>
+                        <select id="BehavioralProblems" name="BehavioralProblems">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="Confusion">😵 Confusão:</label>
+                        <select id="Confusion" name="Confusion">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="Disorientation">🔄 Desorientação:</label>
+                        <select id="Disorientation" name="Disorientation">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="PersonalityChanges">🎭 Mudanças de Personalidade:</label>
+                        <select id="PersonalityChanges" name="PersonalityChanges">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="DifficultyCompletingTasks">🧩 Dificuldade em Completar Tarefas:</label>
+                        <select id="DifficultyCompletingTasks" name="DifficultyCompletingTasks">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+                        
+                        <label for="Forgetfulness">🤔 Esquecimento:</label>
+                        <select id="Forgetfulness" name="Forgetfulness">
+                            <option value="">Não informado</option>
+                            <option value="0">❌ Não</option>
+                            <option value="1">✅ Sim</option>
+                        </select>
+
+                        <label for="doctorInCharge">🩺 Médico Responsável:</label>
+                        <input type="text" id="doctorInCharge" name="DoctorInCharge" class="form-control" placeholder="Nome do médico responsável" maxlength="100">
+
+                    </div>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit">🔍 Obter Predição</button>
+                </div>
+            </form>
+            
+            <div id="missingDataWarning" style="display: none;"></div>
+            <div id="predictionResult"></div>
+            <div id="errorMessage"></div>
+        </section>
+
+        <!-- Seção do Histórico -->
+        <section id="history-section">
+            <h2>📚 Histórico de Predições</h2>
+            <button id="loadHistoryBtn">🔄 Carregar Histórico</button>
+            <div id="historyList"></div>
+            <div id="historyErrorMessage"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 - Sistema de Predição de Alzheimer</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

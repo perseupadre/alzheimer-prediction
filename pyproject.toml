@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "projeto-alzheimer-ml"
+version = "1.0.0"
+description = "Sistema de Predição de Risco de Alzheimer"
+authors = [
+    {name = "Perseu Padre de Macedo", email = "perseupadre@gmail.com"}
+]
+dependencies = [
+    "scikit-learn==1.6.1",    
+    "pandas==2.3.0",          
+    "numpy>=2.3.1",           
+    "joblib==1.5.1",          
+    "pytest==8.4.1",          
+    "pytest-flask==1.3.0",    
+    "pytest-cov==6.2.1",      
+    "pytest-mock==3.14.1",    
+    "pytest-xdist==3.8.0",    
+    "Flask==3.1.1",           
+    "Flask-Cors==6.0.1",      
+    "requests==2.32.4"        
+]
+
+[tool.pytest.ini_options]
+# Configurações do pytest para os testes automatizados
+testpaths = ["backend/tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",                   # verbose output
+    "--tb=short",           # traceback format
+    "--strict-markers",     # strict marker handling
+    "--disable-warnings",   # disable warnings for cleaner output
+    "--color=yes"           # colored output
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "performance: marks tests as performance validation tests"
+]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(name)s: %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.coverage.run]
+source = ["backend"]
+omit = [
+    "*/tests/*",
+    "*/venv/*",
+    "*/__pycache__/*"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError"
+]

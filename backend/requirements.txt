@@ -1,0 +1,22 @@
+## Para o ambiente de desenvolvimento do backend
+Flask==3.1.1 # Para criar APIs
+Flask-Cors==6.0.1 # Para permitir CORS nas APIs
+joblib==1.5.1 # Para serialização de modelos
+pandas==2.3.0 # Para manipulação de dados
+scikit-learn==1.6.1 # Para machine learning - (COMPATÍVEL COM DADOS DO MODELO TREINADO)
+flasgger==0.9.7.1 # Para criar APIs com Flask
+pymongo==4.13.2 # Para interagir com o MongoDB
+
+## Para executar testes
+pytest==8.4.1 # Para testes
+pytest-flask==1.3.0 # Para testes com Flask
+pytest-cov==6.2.1 # Para cobertura de testes
+pytest-mock==3.14.1 # Para mocks em testes
+pytest-xdist==3.8.0 # Para executar testes em paralelo
+requests==2.32.4 # Para fazer requisições HTTP
+numpy>=2.3.1 # Para manipulação de arrays e operações matemáticas
+
+## Caso seja reexecutado o script de treinamento
+kagglehub==0.3.12 # Para baixar datasets do Kaggle
+matplotlib==3.10.3 # Para visualização de dados
+seaborn==0.13.2 # Para visualização de dados

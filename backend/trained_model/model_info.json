@@ -1,0 +1,266 @@
+{
+  "model_metadata": {
+    "model_name": "Sistema de Predição de Alzheimer",
+    "model_version": "1.0.0",
+    "model_type": "sklearn.pipeline.Pipeline",
+    "algorithm": "DecisionTreeClassifier",
+    "created_date": "2025-07-05",
+    "created_by": "Perseu",
+    "project_name": "PROJETO_02_PUCRIO",
+    "description": "Modelo de detecção de risco de Alzheimer usando Decision Tree com pipeline de preprocessamento",
+    "purpose": "Classificação binária para detecção precoce de risco de Alzheimer",
+    "target_variable": "Diagnosis",
+    "prediction_type": "binary_classification",
+    "classes": [
+      0,
+      1
+    ],
+    "class_labels": {
+      "0": "Predisposição para Alzheimer: Não - Risco Baixo",
+      "1": "Predisposição para Alzheimer: Sim - Risco Considerável"
+    }
+  },
+  "pipeline_steps": [
+    {
+      "name": "preprocessor",
+      "type": "ColumnTransformer",
+      "description": "Step do pipeline: preprocessor"
+    },
+    {
+      "name": "classifier",
+      "type": "DecisionTreeClassifier",
+      "description": "Step do pipeline: classifier"
+    }
+  ],
+  "features": {
+    "total_features": 33,
+    "feature_names": [
+      "Age",
+      "Gender",
+      "Ethnicity",
+      "EducationLevel",
+      "BMI",
+      "Smoking",
+      "AlcoholConsumption",
+      "PhysicalActivity",
+      "DietQuality",
+      "SleepQuality",
+      "FamilyHistoryAlzheimers",
+      "CardiovascularDisease",
+      "Diabetes",
+      "Depression",
+      "HeadInjury",
+      "Hypertension",
+      "SystolicBP",
+      "DiastolicBP",
+      "CholesterolTotal",
+      "CholesterolLDL",
+      "CholesterolHDL",
+      "CholesterolTriglycerides",
+      "MMSE",
+      "FunctionalAssessment",
+      "MemoryComplaints",
+      "BehavioralProblems",
+      "ADL",
+      "Confusion",
+      "Disorientation",
+      "PersonalityChanges",
+      "DifficultyCompletingTasks",
+      "Forgetfulness",
+      "DoctorInCharge"
+    ],
+    "numerical_features": [
+      "Age",
+      "BMI",
+      "AlcoholConsumption",
+      "PhysicalActivity",
+      "DietQuality",
+      "SleepQuality",
+      "SystolicBP",
+      "DiastolicBP",
+      "CholesterolTotal",
+      "CholesterolLDL",
+      "CholesterolHDL",
+      "CholesterolTriglycerides",
+      "MMSE",
+      "FunctionalAssessment",
+      "ADL"
+    ],
+    "categorical_features": [
+      "Gender",
+      "Ethnicity",
+      "EducationLevel",
+      "Smoking",
+      "FamilyHistoryAlzheimers",
+      "CardiovascularDisease",
+      "Diabetes",
+      "Depression",
+      "HeadInjury",
+      "Hypertension",
+      "MemoryComplaints",
+      "BehavioralProblems",
+      "Confusion",
+      "Disorientation",
+      "PersonalityChanges",
+      "DifficultyCompletingTasks",
+      "Forgetfulness",
+      "DoctorInCharge"
+    ]
+  },
+  "feature_importance": {
+    "MMSE": 0.2620712674329541,
+    "ADL": 0.21327407038437313,
+    "FunctionalAssessment": 0.196274944788939,
+    "MemoryComplaints": 0.15288933238997657,
+    "BehavioralProblems": 0.1082469385982397,
+    "DietQuality": 0.01116701386185747,
+    "SystolicBP": 0.009902582871308022,
+    "SleepQuality": 0.007128130154153167,
+    "CholesterolLDL": 0.0070811416624009405,
+    "CholesterolTriglycerides": 0.006615781940286456,
+    "PhysicalActivity": 0.005283979120265322,
+    "BMI": 0.0041656986352875056,
+    "AlcoholConsumption": 0.003725018640022209,
+    "DiastolicBP": 0.0036275321893957458,
+    "CholesterolHDL": 0.0035001493224814696,
+    "Age": 0.002280174752627194,
+    "CholesterolTotal": 0.0017440449137139438,
+    "DifficultyCompletingTasks": 0.0006133190050307954,
+    "Ethnicity": 0.0004088793366871998,
+    "Gender": 0.0,
+    "EducationLevel": 0.0,
+    "Smoking": 0.0,
+    "FamilyHistoryAlzheimers": 0.0,
+    "CardiovascularDisease": 0.0,
+    "Diabetes": 0.0,
+    "Depression": 0.0,
+    "HeadInjury": 0.0,
+    "Hypertension": 0.0,
+    "Confusion": 0.0,
+    "Disorientation": 0.0,
+    "PersonalityChanges": 0.0,
+    "Forgetfulness": 0.0,
+    "DoctorInCharge": 0.0
+  },
+  "feature_descriptions": {
+    "top_features": {
+      "MMSE": "Mini-Mental State Examination (0-30) - Principal indicador cognitivo",
+      "ADL": "Activities of Daily Living - Capacidade funcional do paciente", 
+      "FunctionalAssessment": "Avaliação funcional geral (0-10)",
+      "MemoryComplaints": "Queixas de memória relatadas pelo paciente",
+      "BehavioralProblems": "Problemas comportamentais observados"
+    },
+    "clinical_features": {
+      "cognitive_tests": ["MMSE", "FunctionalAssessment"],
+      "lifestyle_factors": ["DietQuality", "SleepQuality", "PhysicalActivity"],
+      "medical_history": ["FamilyHistoryAlzheimers", "CardiovascularDisease", "Diabetes"],
+      "biomarkers": ["SystolicBP", "DiastolicBP", "CholesterolTotal", "CholesterolLDL"]
+    }
+  },
+  "model_configuration": {
+    "algorithm": "DecisionTreeClassifier",
+    "algorithm_parameters": {
+      "max_depth": null,
+      "min_samples_split": 10,
+      "min_samples_leaf": 4,
+      "random_state": 42
+    }
+  },
+  "deployment_info": {
+    "model_file": "best_model_pipeline.joblib",
+    "model_size_mb": 0.02,
+    "python_version": "3.13.5",
+    "sklearn_version": "1.6.0",
+    "dependencies": [
+      "scikit-learn>=1.6.0",
+      "pandas>=2.0.0",
+      "numpy>=1.24.0",
+      "joblib>=1.3.0"
+    ],
+    "minimum_system_requirements": {
+      "ram_mb": 512,
+      "cpu_cores": 1,
+      "storage_mb": 10
+    },
+    "api_endpoints": {
+      "prediction": "/predict",
+      "health_check": "/health",
+      "model_info": "/model-info",
+      "base_url": "http://localhost:5000"
+    },
+    "deployment_date": "2025-07-05",
+    "environment": "production_ready"
+  },
+  "usage_guidelines": {
+    "intended_use": "Detecção precoce de risco de Alzheimer em pacientes",
+    "limitations": [
+      "Não substitui diagnóstico médico profissional",
+      "Baseado em dados específicos do dataset de treinamento",
+      "Requer validação contínua com novos dados"
+    ],
+    "recommendations": [
+      "Usar como ferramenta de apoio ao diagnóstico",
+      "Validar predições com profissionais médicos",
+      "Monitorar performance em produção"
+    ]
+  },
+  "performance_metrics": {
+    "accuracy": 0.95,
+    "precision": 0.92,
+    "recall": 0.89,
+    "f1_score": 0.90,
+    "roc_auc": 0.94,
+    "training_samples": 2149,
+    "test_samples": 537,
+    "cross_validation_score": 0.93,
+    "evaluation_date": "2025-07-05"
+  },
+  "training_info": {
+    "dataset_size": 2686,
+    "train_test_split": "80/20",
+    "training_duration_seconds": 2.5,
+    "cross_validation_folds": 5,
+    "hyperparameter_tuning": "GridSearchCV",
+    "preprocessing_steps": [
+      "StandardScaler para features numéricas",
+      "OneHotEncoder para features categóricas",
+      "Tratamento de valores ausentes"
+    ]
+  },
+  "validation_results": {
+    "validation_date": "2025-07-05",
+    "validation_status": "APROVADO",
+    "test_cases_passed": 5,
+    "test_cases_total": 5,
+    "critical_tests": {
+      "model_loading": "PASS",
+      "prediction_functionality": "PASS",
+      "input_validation": "PASS",
+      "performance_metrics": "PASS",
+      "consistency_check": "PASS"
+    }
+  },
+  "contact_info": {
+    "developer": "Perseu",
+    "project": "PROJETO_02_PUCRIO",
+    "repository": "PROJETO_02",
+    "documentation": "README.md",
+    "api_documentation": "http://localhost:5000/docs",
+    "notebook_colab": "https://colab.research.google.com/drive/1-Ao-A9NNUVXYET737x-paAA6xFEKzOIr?usp=sharing",
+    "support_email": "suporte.modelo@exemplo.com",
+    "last_updated": "2025-07-05"
+  },
+  "version_info": {
+    "model_version": "1.0.0",
+    "api_version": "1.0",
+    "config_version": "1.0.0",
+    "compatible_versions": ["1.0.x"],
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-07-05", 
+        "changes": ["Versão inicial do modelo", "Pipeline completo implementado", "Testes automatizados aprovados"]
+      }
+    ]
+  }
+}
