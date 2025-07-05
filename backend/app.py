@@ -53,9 +53,9 @@ def predict():
           type: object
           properties:
             Age: {type: number, description: 'Idade do paciente'}
-            Gender: {type: string, description: 'Gênero (0=Masculino, 1=Feminino)'}
-            Ethnicity: {type: string, description: 'Etnia (Ex: Branco, Negro, Asiático, Outro)'}
-            EducationLevel: {type: string, description: 'Nível de educação'}
+            Gender: {type: number, description: 'Gênero (0=Masculino, 1=Feminino)'}
+            Ethnicity: {type: number, description: 'Etnia (0=Branco, 1=Negro, 2=Asiático, 3=Outro)'}
+            EducationLevel: {type: number, description: 'Nível de educação (0=Ensino Fundamental, 1=Ensino Médio, 2=Superior, 3=Pós-graduação)'}
             BMI: {type: number, description: 'Índice de Massa Corporal'}
             Smoking: {type: number, description: 'Fuma? (0=Não, 1=Sim)'}
             AlcoholConsumption: {type: number, description: 'Consumo de Álcool (unidades por semana)'}
@@ -84,7 +84,7 @@ def predict():
             PersonalityChanges: {type: number, description: 'Mudanças de Personalidade (0=Não, 1=Sim)'}
             DifficultyCompletingTasks: {type: number, description: 'Dificuldade em Completar Tarefas (0=Não, 1=Sim)'}
             Forgetfulness: {type: number, description: 'Esquecimento (0=Não, 1=Sim)'}
-            DoctorInCharge: {type: string, description: 'Médico Responsável'}
+            DoctorInCharge: {type: string, description: 'Médico Responsável (apenas para armazenamento, não utilizado na predição)'}
     responses:
       200:
         description: 'Resultado da predição.'
