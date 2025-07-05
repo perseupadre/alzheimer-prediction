@@ -58,7 +58,7 @@ Sistema de apoio à decisão clínica com foco em:
 ## 🚀 Execução no Google Colab
 
 ### Link Direto
-[**MVP_2_ML_PUCRIO_FINAL.ipynb**](https://colab.research.google.com/drive/1bDwv9qJp7Dk8XOE-ztUL1bkF7lXxW5yL?usp=sharing)
+[**MVP_2_ML_PUCRIO_FINAL_v2.ipynb**](https://colab.research.google.com/drive/1-Ao-A9NNUVXYET737x-paAA6xFEKzOIr?usp=sharing)
 
 ### Tempo de Execução
 - **Setup + Download**: ~3 min
