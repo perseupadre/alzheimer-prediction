@@ -108,5 +108,7 @@ python -m pytest backend/tests/ -v
 **Autor**: Perseu Padre de Macedo  
 **Email**: perseupadre@gmail.com  
 **Projeto**: MVP 2 - PUC-Rio  
+
 **Notebook Colab**: [Link direto](https://colab.research.google.com/drive/1-Ao-A9NNUVXYET737x-paAA6xFEKzOIr?usp=sharing)
-**Video de Apresentação (YouTube)*: [Link direto](https://youtu.be/9KP_zi2TK_M)
+
+**Video de Apresentação (YouTube)**: [Link direto](https://youtu.be/9KP_zi2TK_M)
