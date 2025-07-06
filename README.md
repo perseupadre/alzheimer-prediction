@@ -19,6 +19,7 @@ PROJETO_02/
 ├── README.md                             # Documentação principal (este arquivo)
 ├── pyproject.toml                        # Configurações do projeto e dependências
 ├── run_tests.py                          # Script refatorado para testes de performance
+├── MVP_2_ML_PUCRIO_FINAL_v2.ipynb        # Notebook completo do desenvolvimento (Colab - Salvar uma cópia no Github)
 │
 ├── backend/                              # 🔧 Servidor Flask e API
 │   ├── README.md                         # Documentação do backend
@@ -44,7 +45,6 @@ PROJETO_02/
 │
 └── notebook/                             # 📓 Desenvolvimento do Modelo
     ├── README.md                         # Documentação do notebook
-    └── MVP_2_ML_PUCRIO_FINAL_v2.ipynb    # Notebook completo do desenvolvimento
 ```
 
 ## 🚀 Quick Start
